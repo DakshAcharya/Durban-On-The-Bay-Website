@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durban on The Bay - Authentic Asian Cuisine</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Custom JS -->
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Logo.png" alt="logo">
+            <h1>Durban on The Bay</h1>
+        </div>
+        <nav class="nav-bar">
+            <a href="#home" onclick="showSection('home')">Home</a>
+            <a href="#menu" onclick="showSection('menu')">Menu</a>
+            <a href="#hours" onclick="showSection('hours')">Hours</a>
+            <a href="#contact" onclick="showSection('contact')">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <div class="main">
+                <img src="Logo.png" alt="hero logo" class="hero-logo">
+                <h2>Welcome to Durban on The Bay</h2>
+                <p>Your gateway to authentic Asian cuisine in South Africa</p>
+                <a href="#menu" class="btn" onclick="showSection('menu')">Explore Our Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section">
+        <div class="container">
+            <h2>Our Menu</h2>
+            <div class="menu-categories">
+                <button class="category-btn active" onclick="filterCategory('all')">All Items</button>
+                <button class="category-btn" onclick="filterCategory('bunny')">Bunny Chows</button>
+                <button class="category-btn" onclick="filterCategory('biryani')">Biryanis</button>
+                <button class="category-btn" onclick="filterCategory('curry')">Curries</button>
+                <button class="category-btn" onclick="filterCategory('chinese')">Chinese</button>
+                <button class="category-btn" onclick="filterCategory('snacks')">Snacks & Sides</button>
+            </div>
+            <div class="menu-items" id="menu-items">
+                <!-- Menu items will be dynamically loaded from menu.txt -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section id="hours" class="section">
+        <div class="container">
+            <h2>Opening Hours</h2>
+            <div class="hours-info">
+                <div class="hours-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>We're Open Every Day!</h3>
+                    <p><strong>Monday - Sunday</strong></p>
+                    <p>9:00 AM - 9:00 PM</p>
+                    <p class="note">Fresh food served all day</p>
+                </div>
+                <div class="hours-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Service Options</h3>
+                    <p>• Dine-in</p>
+                    <p>• Takeaway</p>
+                    <p>• Ready to Eat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>[Your Phone Number]</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Address</h3>
+                    <p>[Your Restaurant Address]</p>
+                    <p>Durban, South Africa</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>[Your Email Address]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

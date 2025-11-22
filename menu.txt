@@ -1,0 +1,118 @@
+Samosas
+Chicken: R15
+Mince: R15
+Chicken Peri Peri: R15
+Potato: R15
+Cheese Corn: R15
+Jalepeno Chicken: R15
+
+Rotis And More
+Plain Roti: R10
+Butter Roti: R15
+Plain Paratha: R20
+Butter Paratha: R25
+Masala Paratha: R15
+Plain Naan: R20
+Butter Naan: R20
+Garlic Naan: R20
+
+Rice
+Plain Tastic Rice: R35
+Plain Basmati Rice: R45
+
+Extras
+Mango Pickle: R20
+Veg. Pickle: R20
+Papad: R15
+Salad: R25
+
+Wraps And Rotis
+Chicken Roti Roll: R65
+Mutton Roti Roll: R80
+Beans Briti Roll: R60
+Mix Veg Roti Roll: R60
+Veg Spring Roll (4pcs): R55
+Chicken Spring Roll: R65
+Prawn Spring Roll: R85
+
+Chips
+Small Chips: R25
+Medium Chips: R35
+Large Chips: R45
+Russian And Chips: R55
+Fish And Chips: R65
+
+Burgers
+Chicken Burger: R40
+Chicken Cheeseburger: R45
+
+Bunny Chows
+Chicken Bunny: R75
+Mutton Bunny: R85
+Kabab Bunny: R95
+Mix Veg. Bunny: R65
+Broad Bean Bunny: R65
+Butterchicken Bunny: R80
+
+Biryanis
+Mutton Biryani: R80
+Chicken Biryani: R75
+Prawns Biryani: R85
+Fish Biryani: R75
+Egg Biryani: R70
+Veg Biryani: R65
+
+Sandwiches
+Chicken Mayo: R30
+Tuna & Mayo: R30
+Cheese And Tomato: R25
+Egg Sandwich: R25
+
+Curry Only - Non-Vegetarian
+Mutton Curry: R70
+Mutton Korma: R75
+Mutton Kadai: R75
+Mutton Masala: R80
+Dal Gosh: R75
+Kebab Curry: R75
+Chicken Curry: R60
+Chicken Korma: R65
+Chicken Kadai: R65
+Butter Chicken: R70
+Chicken Masala: R65
+Chicken Boneless: R70
+Fish Curry: R70
+Egg Curry: R65
+
+Curry Only - Vegetarian
+Mix Veg Curry: R60
+Beans Curry: R65
+Peas Potato: R55
+Palak Paneer: R65
+Paneer Masala: R65
+Butter Paneer: R65
+Dal Fry: R55
+Chana Masala: R60
+
+Chow Mein
+Chicken Chow Mein: R65
+Veg. Chow Mein: R55
+Prawn Chow Mein: R75
+Egg Chow Mein: R55
+Mix Chow Mein: R80
+
+Fried Rice
+Veg. Fried Rice: R60
+Prawn Fried Rice: R80
+Egg Fried Rice: R55
+Mix Fried Rice: R80
+Chili Chicken: R65
+Chicken Munchurian: R70
+Prawn Chili: R80
+Prawn Munchurian: R80
+Chicken Fried Rice: R65
+
+Dumplings
+Chicken Dumplings (10pcs): R80
+Chicken Chili Dumplings (10pcs): R90
+Chicken (C) Dumplings (10pcs): R110
