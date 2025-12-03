@@ -42,10 +42,6 @@ Large Chips: R45
 Russian And Chips: R55
 Fish And Chips: R65
 
-Burgers
-Chicken Burger: R40
-Chicken Cheeseburger: R45
-
 Bunny Chows
 Chicken Bunny: R75
 Mutton Bunny: R85
