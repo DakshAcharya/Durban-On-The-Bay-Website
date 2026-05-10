@@ -1,10 +1,105 @@
+Lamb Menu
+Lamb Curry: R95
+Lamb Korma: R110
+Lamb Kadai: R110
+Lamb Masala: R120
+Lamb Dal Gosh: R95
+Lamb Kebabs Curry: R110
+Lamb Vindaloo: R100
+Lamb Boneless Curry: R120
+Lamb Saag: R100
+Lamb Tikka Masala: R110
+Lamb Liver Curry: R80
+
+Bunny Chows
+Chicken Bunny: R75
+Lamb Bunnys: R90
+Kabab Bunnys: R95
+Mix Veg. Bunny: R65
+Butter Bean Bunny: R65
+Buttershicken Bunny: R85
+Prawns Bunny: R110
+
+Indo-Chinese
+Chili Chicken: R80
+Chicken Munchurian: R95
+Prawn Chili: R110
+Prawn Munchurian: R110
+
+Chips
+Small Chips: R15
+Medium Chips: R20
+Large Chips: R30
+Russian And Chips: R40
+Fish And Chips (HAKE): R40
+Chicken and Chips: R40
+
+Chow Meins
+Chicken Chow Mein: R75
+Veg. Chow Mein: R65
+Prawn Chow Mein: R85
+Egg Chow Mein: R75
+Mix Chow Mein: R90
+Sea Food Mix Chow Mein: R85
+
+Wraps
+Chicken Roti Roll: R75
+Lamb Roti Roll: R90
+Beans Roti Roll: R65
+Mix Veg Roti Roll: R65
+
+Chicken Menu
+Chicken Curry: R80
+Chicken Korma: R90
+Chicken Kadai: R90
+Butter Chicken: R95
+Chicken Masala: R90
+Chicken Boneless: R95
+Chicken Vindaloo: R85
+Chicken Saag: R85
+Chicken Tikka Masala: R90
+Chicken Liver Curry: R80
+Dal Chicken: R85
+Egg Curry: R80
+
 Samosas
-Chicken: R15
-Mince: R15
-Chicken Peri Peri: R15
-Potato: R15
-Cheese Corn: R15
-Jalepeno Chicken: R15
+Chicken Samosa: R15
+Mince Samosa: R15
+Chicken Peri Peri Samosa: R15
+Potato Samosa: R15
+Cheese Corn Samosa: R15
+Jalepeno Chicken Samosa: R15
+
+Fried Rice
+Veg. Fried Rice: R75
+Prawn Fried Rice: R85
+Egg Fried Rice: R75
+Mix Fried Rice: R90
+Chicken Fried Rice: R80
+Lamb Fried Rice: R85
+Sea Food Mix Fried Rice: R75
+
+Extras
+Mango Pickle: R20
+Veg. Pickle: R20
+Papad: R15
+Salad: R35
+Plain Basmati Rice: R45
+
+Veg Menu
+Mix Veg Curry: R60
+Beans Curry: R65
+Peas Potato: R55
+Palak Paneer: R65
+Paneer Masala: R80
+Butter Paneer: R85
+Dal Fry: R60
+Chana Masala: R75
+
+Dumplings
+Chicken Dumplings (10pcs): R110
+Chicken Chili Dumplings (10pcs): R120
+Chicken (C) Dumplings (10pcs): R135
 
 Rotis And More
 Plain Roti: R10
@@ -13,102 +108,6 @@ Plain Paratha: R20
 Butter Paratha: R25
 Masala Paratha: R15
 Plain Naan: R20
-Butter Naan: R20
-Garlic Naan: R20
-
-Rice
-Plain Tastic Rice: R35
-Plain Basmati Rice: R45
-
-Extras
-Mango Pickle: R20
-Veg. Pickle: R20
-Papad: R15
-Salad: R25
-
-Wraps And Rotis
-Chicken Roti Roll: R65
-Mutton Roti Roll: R80
-Beans Briti Roll: R60
-Mix Veg Roti Roll: R60
-Veg Spring Roll (4pcs): R55
-Chicken Spring Roll: R65
-Prawn Spring Roll: R85
-
-Chips
-Small Chips: R25
-Medium Chips: R35
-Large Chips: R45
-Russian And Chips: R55
-Fish And Chips: R65
-
-Bunny Chows
-Chicken Bunny: R75
-Mutton Bunny: R85
-Kabab Bunny: R95
-Mix Veg. Bunny: R65
-Broad Bean Bunny: R65
-Butterchicken Bunny: R80
-
-Biryanis
-Mutton Biryani: R80
-Chicken Biryani: R75
-Prawns Biryani: R85
-Fish Biryani: R75
-Egg Biryani: R70
-Veg Biryani: R65
-
-Sandwiches
-Chicken Mayo: R30
-Tuna & Mayo: R30
-Cheese And Tomato: R25
-Egg Sandwich: R25
-
-Curry Only - Non-Vegetarian
-Mutton Curry: R70
-Mutton Korma: R75
-Mutton Kadai: R75
-Mutton Masala: R80
-Dal Gosh: R75
-Kebab Curry: R75
-Chicken Curry: R60
-Chicken Korma: R65
-Chicken Kadai: R65
-Butter Chicken: R70
-Chicken Masala: R65
-Chicken Boneless: R70
-Fish Curry: R70
-Egg Curry: R65
-
-Curry Only - Vegetarian
-Mix Veg Curry: R60
-Beans Curry: R65
-Peas Potato: R55
-Palak Paneer: R65
-Paneer Masala: R65
-Butter Paneer: R65
-Dal Fry: R55
-Chana Masala: R60
-
-Chow Mein
-Chicken Chow Mein: R65
-Veg. Chow Mein: R55
-Prawn Chow Mein: R75
-Egg Chow Mein: R55
-Mix Chow Mein: R80
-
-Fried Rice
-Veg. Fried Rice: R60
-Prawn Fried Rice: R80
-Egg Fried Rice: R55
-Mix Fried Rice: R80
-Chili Chicken: R65
-Chicken Munchurian: R70
-Prawn Chili: R80
-Prawn Munchurian: R80
-Chicken Fried Rice: R65
-
-Dumplings
-Chicken Dumplings (10pcs): R80
-Chicken Chili Dumplings (10pcs): R90
-Chicken (C) Dumplings (10pcs): R110
+Butter Naan: R25
+Garlic Naan: R25
+Aloo Paratha: R25
