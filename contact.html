@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Durban on The Bay | Contact Us</title>
 
-    <!-- Global site styles (colors, header, background, etc.) -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Contact‑specific styles (overrides, form layout, custom cards) -->
     <link rel="stylesheet" href="contact.css">
 </head>
 
@@ -116,7 +114,6 @@
                         <button type="submit" class="submit-btn">Send message →</button>
                         <p class="form-note">We’ll get back to you within 24 hours. No spam, just curry love.</p>
                     </form>
-                    <!-- inline success/error feedback area -->
                     <div id="formFeedback" class="feedback-message" style="display: none;"></div>
                 </div>
             </div>
@@ -138,7 +135,6 @@
         <p>© 2025 Durban on The Bay — where the ocean meets the masala. All rights reserved.</p>
     </footer>
 
-    <!-- simple inline form handler (matches style/interactivity but lightweight) -->
     <script>
         (function() {
             const form = document.getElementById('contactForm');
@@ -148,7 +144,6 @@
                 feedbackDiv.style.display = 'block';
                 feedbackDiv.textContent = message;
                 feedbackDiv.className = 'feedback-message ' + (isError ? 'feedback-error' : 'feedback-success');
-                // auto hide after 5 seconds
                 setTimeout(() => {
                     if (feedbackDiv) {
                         feedbackDiv.style.opacity = '0';
@@ -177,7 +172,6 @@
                         return;
                     }
 
-                    // simulate sending (frontend demo)
                     const submitBtn = form.querySelector('.submit-btn');
                     const originalText = submitBtn.innerHTML;
                     submitBtn.innerHTML = '⏳ Sending ...';
@@ -187,7 +181,7 @@
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
                         showFeedback('✨ Message sent! One of our team members will reply soon. Thanks for reaching out!', false);
-                        form.reset();   // clear fields after success (optional)
+                        form.reset();
                     }, 900);
                 });
             }

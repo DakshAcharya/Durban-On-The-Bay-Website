@@ -3,28 +3,23 @@
    Overrides / additions to global styles.css for #contact page
    ============================================================ */
 
-/* ----- fix scrolling & body overflow for contact page ----- */
 #contact body {
-    overflow-y: auto !important;      /* allow scrolling on contact page */
+    overflow-y: auto !important;
     overflow-x: hidden;
     height: auto;
     min-height: 100vh;
     background-attachment: fixed;
 }
 
-/* ensure main section doesn't clip content */
 #contact main.contact-main {
     overflow: visible;
     flex: 1 0 auto;
 }
 
-/* remove global 'overflow: hidden' restriction (inherited from styles.css) */
 #contact body::after {
     display: none;
 }
 
-/* optional: subtle overlay to improve readability on the bg image
-   but we keep card backgrounds opaque for readability */
 #contact {
     background-color: var(--primary-black);
 }
@@ -81,7 +76,6 @@
     gap: var(--space-2xl);
 }
 
-/* panels shared style */
 .contact-info-panel,
 .contact-form-panel {
     display: flex;
@@ -89,7 +83,6 @@
     gap: var(--space-lg);
 }
 
-/* info cards (glass + dark aesthetic) */
 .info-card, .form-card {
     background: rgba(20, 20, 26, 0.92);
     backdrop-filter: blur(2px);
@@ -138,7 +131,6 @@
     text-decoration: underline;
 }
 
-/* hours list with flex spacing */
 .hours-list {
     list-style: none;
     margin-top: var(--space-sm);
@@ -160,7 +152,6 @@
     font-weight: 500;
 }
 
-/* mock map (style consistency) */
 .map-mock {
     margin-top: var(--space-sm);
 }
@@ -249,7 +240,6 @@
     font-size: var(--text-sm);
 }
 
-/* submit button - matches .btn style from homepage but improved */
 .submit-btn {
     background: var(--gradient-orange);
     color: var(--primary-white);
@@ -415,12 +405,10 @@
     }
 }
 
-/* touch-friendly tap targets */
 button, .nav a, .submit-btn, .info-card a {
     cursor: pointer;
 }
 
-/* additional header consistency (small gap override) */
 #contact header {
     position: relative;
     background: rgba(26, 26, 26, 0.88);
@@ -428,12 +416,10 @@ button, .nav a, .submit-btn, .info-card a {
     border-bottom: 1px solid rgba(255,107,53,0.3);
 }
 
-/* ensure global .nav a animation works perfectly */
 .nav a.active-page {
     color: var(--primary-orange);
 }
 
-/* scrollbar hidden but content scroll is functional (clean) */
 #contact ::-webkit-scrollbar {
     width: 5px;
 }

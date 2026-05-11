@@ -83,12 +83,12 @@
 
     /* --- Z-Index Scale --- */
     --z-base: 0;
-    --z-overlay-bg: 1;       /* overlay above fixed image */
-    --z-content: 10;         /* normal content stacking */
+    --z-overlay-bg: 1;
+    --z-content: 10;
     --z-header: 500;
     --z-dropdown: 100;
     --z-sticky: 500;
-    --z-overlay: 800;       /* modals, full-screen overlays */
+    --z-overlay: 800;
     --z-modal: 1000;
     --z-toast: 1200;
 
@@ -114,7 +114,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    height: 100%;                      /* 👈 locks html to viewport */
+    height: 100%;
 }
 
 body {
@@ -125,10 +125,9 @@ body {
     color: var(--primary-white);
     line-height: var(--line-height-normal);
     position: relative;
-    height: 100%;                      /* 👈 forces body to match viewport exactly */
+    height: 100%;
 }
 
-/* Hides the scrollbar entirely */
 ::-webkit-scrollbar {
     width: 0;
 }
@@ -249,7 +248,7 @@ main {
 .hero {
     position: relative;
     width: 100%;
-    height: 100%;                     /* fills available main height */
+    height: 100%;
     overflow: hidden;
 }
 

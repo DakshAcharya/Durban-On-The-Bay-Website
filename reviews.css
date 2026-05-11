@@ -2,7 +2,7 @@
    REVIEWS PAGE STYLES (reviews.css)
    ============================================================ */
 
-/* ----- FIX SCROLLING (overrides global overflow:hidden) ----- */
+/* ----- FIX SCROLLING ----- */
 body#reviews {
     overflow-y: auto !important;
     overflow-x: hidden;
@@ -11,7 +11,7 @@ body#reviews {
     background-color: var(--primary-black);
 }
 
-/* header styling */
+/* ----- HEADER STYLING ----- */
 .reviews-header {
     text-align: center;
     padding: var(--space-xl) var(--space-lg) var(--space-lg);
@@ -47,7 +47,7 @@ body#reviews {
     line-height: var(--line-height-relaxed);
 }
 
-/* widget container – ensures it respects our dark theme */
+/* ----- WIDGET CONTAINER ----- */
 .widget-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -56,14 +56,13 @@ body#reviews {
     border-radius: var(--radius-lg);
 }
 
-/* Trustindex / Elfsight automatically adapt – but we force dark background */
 .widget-container iframe,
 .widget-container .ti-widget,
 .widget-container .elfsight-app-google-reviews {
     background: transparent !important;
 }
 
-/* optional: style for the CTA link */
+/* ----- REVIEW CTA ----- */
 .review-cta {
     text-align: center;
     margin: var(--space-2xl) auto var(--space-xl);
@@ -90,7 +89,7 @@ body#reviews {
     text-decoration: underline;
 }
 
-/* footer */
+/* ----- FOOTER ----- */
 .reviews-footer {
     background: var(--secondary-black);
     padding: var(--space-lg);
@@ -105,7 +104,7 @@ body#reviews {
     opacity: 0.8;
 }
 
-/* responsive */
+/* ----- RESPONSIVE ----- */
 @media (max-width: 768px) {
     .widget-container {
         padding: var(--space-md);
