@@ -127,7 +127,6 @@ body {
     overflow-x: hidden;
     position: relative;
     height: 100%;                      /* 👈 forces body to match viewport exactly */
-    overflow: hidden;                  /* 👈 kills any scrollbar */
 }
 
 /* Hides the scrollbar entirely */

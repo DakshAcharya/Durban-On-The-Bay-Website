@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Durban on The Bay | Contact Us</title>
+
+    <!-- Global site styles (colors, header, background, etc.) -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Contact‑specific styles (overrides, form layout, custom cards) -->
+    <link rel="stylesheet" href="contact.css">
+</head>
+
+<body id="contact">
+    <header>
+        <div class="logo">
+            <img src="images/Logo.png" alt="Durban on The Bay Logo">
+            <h1>Durban on The Bay</h1>
+        </div>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="reviews.html">Reviews</a>
+        </nav>
+    </header>
+
+    <main class="contact-main">
+        <!-- decorative heading zone with flame & lime accents -->
+        <div class="contact-header">
+            <h2 class="contact-heading">Let’s connect — <span class="highlight">flavours & tradition</span></h2>
+            <div class="heading-divider"></div>
+            <p class="contact-subhead">Reach out for reservations, private events, or just to say hello.<br>We’re serving Durban’s finest curry experience with a side of soul.</p>
+        </div>
+
+        <!-- two column layout: contact details + form -->
+        <div class="contact-grid">
+            <!-- LEFT: INFO + HOURS + MAP PLACEHOLDER -->
+            <div class="contact-info-panel">
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <h3>Visit Us</h3>
+                    <p>Shop 4, Bayview Boulevard<br>Victoria Embankment, Durban<br>4001, South Africa</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">📞</div>
+                    <h3>Call / WhatsApp</h3>
+                    <p><a href="tel:+27310345678">+27 31 034 5678</a><br>
+                    <a href="tel:+27761234567">+27 76 123 4567</a> (Mobile)</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:hello@durbanonthebay.co.za">hello@durbanonthebay.co.za</a><br>
+                    <a href="mailto:reservations@durbanonthebay.co.za">reservations@durbanonthebay.co.za</a></p>
+                </div>
+
+                <div class="info-card hours-card">
+                    <div class="info-icon">⏰</div>
+                    <h3>Opening Hours</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday – Thursday</span><span>11:00 – 22:00</span></li>
+                        <li><span>Friday – Saturday</span><span>11:00 – 23:30</span></li>
+                        <li><span>Sunday & Public Holidays</span><span>12:00 – 21:00</span></li>
+                        <li class="highlight-hour"><span>Kitchen last order</span><span>30 min before close</span></li>
+                    </ul>
+                </div>
+
+                <!-- subtle mock map / location vibe (matches aesthetic) -->
+                <div class="map-mock">
+                    <div class="map-placeholder">
+                        <div class="map-pin"></div>
+                        <p>🌊 The Golden Mile • uShaka Marine World nearby</p>
+                        <span class="map-note">Find us right on the bay walkway — ocean breeze & curry spices</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: CONTACT FORM -->
+            <div class="contact-form-panel">
+                <div class="form-card">
+                    <h3>Send us a message</h3>
+                    <form id="contactForm" action="#" method="post">
+                        <div class="input-group">
+                            <label for="name">Full name *</label>
+                            <input type="text" id="name" name="name" required placeholder="e.g. Thando Mkhize">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="email">Email address *</label>
+                            <input type="email" id="email" name="email" required placeholder="hello@example.com">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="phone">Phone (optional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+27 82 123 4567">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject">
+                                <option value="reservation">Table reservation / booking</option>
+                                <option value="catering">Catering & private events</option>
+                                <option value="feedback">Feedback or suggestion</option>
+                                <option value="complaint">Restaurant enquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="message">Your message *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your visit, special requests, or just drop a spicy note..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send message →</button>
+                        <p class="form-note">We’ll get back to you within 24 hours. No spam, just curry love.</p>
+                    </form>
+                    <!-- inline success/error feedback area -->
+                    <div id="formFeedback" class="feedback-message" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- extra social/directions touch -->
+        <div class="contact-bottom">
+            <div class="social-hint">
+                <span>📸 Tag us #DurbanOnTheBay</span>
+                <span class="social-sep">|</span>
+                <span>🍛 authentic Durban curry since 2012</span>
+                <span class="social-sep">|</span>
+                <span>🔊 live jazz every Friday</span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="contact-footer">
+        <p>© 2025 Durban on The Bay — where the ocean meets the masala. All rights reserved.</p>
+    </footer>
+
+    <!-- simple inline form handler (matches style/interactivity but lightweight) -->
+    <script>
+        (function() {
+            const form = document.getElementById('contactForm');
+            const feedbackDiv = document.getElementById('formFeedback');
+
+            function showFeedback(message, isError = false) {
+                feedbackDiv.style.display = 'block';
+                feedbackDiv.textContent = message;
+                feedbackDiv.className = 'feedback-message ' + (isError ? 'feedback-error' : 'feedback-success');
+                // auto hide after 5 seconds
+                setTimeout(() => {
+                    if (feedbackDiv) {
+                        feedbackDiv.style.opacity = '0';
+                        setTimeout(() => {
+                            feedbackDiv.style.display = 'none';
+                            feedbackDiv.style.opacity = '1';
+                        }, 400);
+                    }
+                }, 4800);
+            }
+
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const name = document.getElementById('name')?.value.trim();
+                    const email = document.getElementById('email')?.value.trim();
+                    const message = document.getElementById('message')?.value.trim();
+
+                    if (!name || !email || !message) {
+                        showFeedback('❌ Please fill in all required fields (name, email, message).', true);
+                        return;
+                    }
+                    if (!email.includes('@') || !email.includes('.')) {
+                        showFeedback('📧 Please enter a valid email address.', true);
+                        return;
+                    }
+
+                    // simulate sending (frontend demo)
+                    const submitBtn = form.querySelector('.submit-btn');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '⏳ Sending ...';
+                    submitBtn.disabled = true;
+
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        showFeedback('✨ Message sent! One of our team members will reply soon. Thanks for reaching out!', false);
+                        form.reset();   // clear fields after success (optional)
+                    }, 900);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* ============================================================
+   REVIEWS PAGE STYLES (reviews.css)
+   ============================================================ */
+
+/* ----- FIX SCROLLING (overrides global overflow:hidden) ----- */
+body#reviews {
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    height: auto;
+    min-height: 100vh;
+    background-color: var(--primary-black);
+}
+
+/* header styling */
+.reviews-header {
+    text-align: center;
+    padding: var(--space-xl) var(--space-lg) var(--space-lg);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.reviews-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    color: var(--primary-white);
+    text-shadow: var(--text-shadow-soft);
+}
+
+.reviews-heading .highlight {
+    color: var(--primary-orange);
+    text-shadow: var(--text-glow-orange);
+}
+
+.heading-divider {
+    width: 100px;
+    height: 3px;
+    background: var(--primary-lime);
+    margin: var(--space-md) auto;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--glow-lime);
+}
+
+.reviews-subhead {
+    font-size: var(--text-base);
+    color: var(--accent-white);
+    opacity: 0.9;
+    line-height: var(--line-height-relaxed);
+}
+
+/* widget container – ensures it respects our dark theme */
+.widget-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    background: transparent;
+    border-radius: var(--radius-lg);
+}
+
+/* Trustindex / Elfsight automatically adapt – but we force dark background */
+.widget-container iframe,
+.widget-container .ti-widget,
+.widget-container .elfsight-app-google-reviews {
+    background: transparent !important;
+}
+
+/* optional: style for the CTA link */
+.review-cta {
+    text-align: center;
+    margin: var(--space-2xl) auto var(--space-xl);
+    padding: var(--space-lg);
+    max-width: 600px;
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+.review-cta p {
+    color: var(--secondary-white);
+    font-size: var(--text-md);
+}
+
+.review-cta a {
+    color: var(--primary-lime);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.review-cta a:hover {
+    color: var(--primary-orange);
+    text-decoration: underline;
+}
+
+/* footer */
+.reviews-footer {
+    background: var(--secondary-black);
+    padding: var(--space-lg);
+    text-align: center;
+    border-top: 1px solid rgba(255,107,53,0.3);
+    margin-top: var(--space-xl);
+}
+
+.reviews-footer p {
+    font-size: var(--text-sm);
+    color: var(--secondary-white);
+    opacity: 0.8;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .widget-container {
+        padding: var(--space-md);
+    }
+    .reviews-heading {
+        font-size: var(--text-3xl);
+    }
+}

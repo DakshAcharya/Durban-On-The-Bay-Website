@@ -1,0 +1,448 @@
+/* ============================================================
+   CONTACT PAGE STYLES (contact.css)
+   Overrides / additions to global styles.css for #contact page
+   ============================================================ */
+
+/* ----- fix scrolling & body overflow for contact page ----- */
+#contact body {
+    overflow-y: auto !important;      /* allow scrolling on contact page */
+    overflow-x: hidden;
+    height: auto;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+/* ensure main section doesn't clip content */
+#contact main.contact-main {
+    overflow: visible;
+    flex: 1 0 auto;
+}
+
+/* remove global 'overflow: hidden' restriction (inherited from styles.css) */
+#contact body::after {
+    display: none;
+}
+
+/* optional: subtle overlay to improve readability on the bg image
+   but we keep card backgrounds opaque for readability */
+#contact {
+    background-color: var(--primary-black);
+}
+
+/* ===== HEADER & TITLE SECTION ===== */
+.contact-header {
+    text-align: center;
+    padding: var(--space-xl) var(--space-lg) var(--space-lg);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    color: var(--primary-white);
+    text-shadow: var(--text-shadow-soft);
+    letter-spacing: -0.01em;
+}
+
+.contact-heading .highlight {
+    color: var(--primary-orange);
+    background: linear-gradient(120deg, var(--primary-orange) 0%, var(--secondary-orange) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: none;
+}
+
+.heading-divider {
+    width: 100px;
+    height: 3px;
+    background: var(--primary-lime);
+    margin: var(--space-md) auto var(--space-md);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--glow-lime);
+}
+
+.contact-subhead {
+    font-size: var(--text-base);
+    color: var(--accent-white);
+    opacity: 0.9;
+    line-height: var(--line-height-relaxed);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ===== TWO COLUMN GRID (RESPONSIVE) ===== */
+.contact-grid {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-lg) var(--space-xl);
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--space-2xl);
+}
+
+/* panels shared style */
+.contact-info-panel,
+.contact-form-panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+/* info cards (glass + dark aesthetic) */
+.info-card, .form-card {
+    background: rgba(20, 20, 26, 0.92);
+    backdrop-filter: blur(2px);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
+    border: var(--border-width-thin) solid rgba(255, 107, 53, 0.25);
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-light);
+}
+
+.info-card:hover, .form-card:hover {
+    border-color: var(--primary-orange);
+    box-shadow: var(--glow-orange);
+    background: rgba(26, 26, 34, 0.96);
+}
+
+.info-icon {
+    font-size: 2.3rem;
+    margin-bottom: var(--space-sm);
+    display: inline-block;
+}
+
+.info-card h3, .form-card h3 {
+    font-family: var(--font-primary);
+    font-size: var(--text-xl);
+    color: var(--primary-orange);
+    margin-bottom: var(--space-md);
+    letter-spacing: 1px;
+}
+
+.info-card p, .info-card a, .hours-list li {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-size: var(--text-base);
+    color: var(--secondary-white);
+    line-height: var(--line-height-relaxed);
+}
+
+.info-card a {
+    color: var(--primary-lime);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.info-card a:hover {
+    color: var(--primary-orange);
+    text-decoration: underline;
+}
+
+/* hours list with flex spacing */
+.hours-list {
+    list-style: none;
+    margin-top: var(--space-sm);
+}
+
+.hours-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-xs) 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.1);
+}
+
+.hours-list li span:first-child {
+    font-weight: 600;
+}
+
+.highlight-hour {
+    color: var(--primary-lime);
+    font-weight: 500;
+}
+
+/* mock map (style consistency) */
+.map-mock {
+    margin-top: var(--space-sm);
+}
+
+.map-placeholder {
+    background: linear-gradient(145deg, #1e2a2a, #0f1a1f);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    text-align: center;
+    border: 1px solid var(--primary-orange);
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.map-pin {
+    width: 24px;
+    height: 24px;
+    background: var(--primary-orange);
+    border-radius: 50%;
+    margin: 0 auto var(--space-sm);
+    box-shadow: 0 0 0 4px rgba(255,107,53,0.3);
+    animation: pulse 2s infinite;
+}
+
+.map-placeholder p {
+    font-weight: bold;
+    color: var(--primary-white);
+    margin-bottom: var(--space-xs);
+    font-size: var(--text-sm);
+}
+
+.map-note {
+    font-size: var(--text-xs);
+    color: var(--secondary-white);
+    opacity: 0.8;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,107,53,0.6); }
+    70% { box-shadow: 0 0 0 10px rgba(255,107,53,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,107,53,0); }
+}
+
+/* ----- FORM STYLES (dark, fiery focus) ----- */
+.input-group {
+    margin-bottom: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: var(--text-sm);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-lime);
+    margin-bottom: var(--space-xs);
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    background: var(--primary-black);
+    border: var(--border-width-thin) solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-sm);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: var(--text-base);
+    color: var(--primary-white);
+    transition: var(--transition-smooth);
+    resize: vertical;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.25);
+    background: var(--secondary-black);
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: rgba(255,255,255,0.4);
+    font-size: var(--text-sm);
+}
+
+/* submit button - matches .btn style from homepage but improved */
+.submit-btn {
+    background: var(--gradient-orange);
+    color: var(--primary-white);
+    border: none;
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--text-lg);
+    font-weight: bold;
+    font-family: var(--font-primary);
+    border-radius: var(--radius-md);
+    width: 100%;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-light);
+    text-transform: uppercase;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    background: var(--secondary-orange);
+    box-shadow: var(--shadow-heavy), var(--glow-orange);
+}
+
+.form-note {
+    font-size: var(--text-xs);
+    color: var(--accent-white);
+    text-align: center;
+    margin-top: var(--space-md);
+    opacity: 0.7;
+}
+
+.feedback-message {
+    margin-top: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: 500;
+    background: rgba(0,0,0,0.7);
+    transition: opacity 0.3s;
+}
+
+.feedback-success {
+    color: var(--primary-lime);
+    border-left: 4px solid var(--primary-lime);
+    background: rgba(50,205,50,0.1);
+}
+
+.feedback-error {
+    color: #ffaa66;
+    border-left: 4px solid var(--primary-orange);
+    background: rgba(255,107,53,0.1);
+}
+
+/* ----- BOTTOM SOCIAL / TAGLINE ----- */
+.contact-bottom {
+    max-width: var(--container-max-width);
+    margin: 0 auto var(--space-2xl);
+    text-align: center;
+    padding: var(--space-md) var(--space-lg);
+}
+
+.social-hint {
+    font-family: 'Permanent Marker', cursive;
+    font-size: var(--text-sm);
+    background: rgba(0,0,0,0.55);
+    display: inline-block;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,107,53,0.4);
+}
+
+.social-hint span {
+    color: var(--primary-white);
+    margin: 0 var(--space-xs);
+}
+
+.social-sep {
+    color: var(--primary-orange);
+    font-weight: bold;
+}
+
+/* ----- FOOTER (clean, minimal) ----- */
+.contact-footer {
+    background: var(--secondary-black);
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+    border-top: 1px solid rgba(255,107,53,0.3);
+    margin-top: auto;
+}
+
+.contact-footer p {
+    font-size: var(--text-sm);
+    color: var(--secondary-white);
+    opacity: 0.8;
+    font-family: monospace;
+}
+
+/* ----- Responsive design (mobile first adjustments) ----- */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+        padding: var(--space-md);
+    }
+
+    .contact-info-panel {
+        order: 2;
+    }
+
+    .contact-form-panel {
+        order: 1;
+    }
+
+    .contact-heading {
+        font-size: var(--text-4xl);
+        white-space: normal;
+    }
+
+    .info-card, .form-card {
+        padding: var(--space-lg);
+    }
+}
+
+@media (max-width: 640px) {
+    .contact-header {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .contact-subhead {
+        font-size: var(--text-sm);
+    }
+
+    .hours-list li {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+
+    .hours-list li span:last-child {
+        font-weight: 500;
+        color: var(--primary-lime);
+    }
+
+    .submit-btn {
+        font-size: var(--text-base);
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .social-hint {
+        font-size: 0.7rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.2rem;
+    }
+
+    .social-hint .social-sep {
+        display: none;
+    }
+
+    .social-hint span {
+        margin: 0 0.3rem;
+    }
+}
+
+/* touch-friendly tap targets */
+button, .nav a, .submit-btn, .info-card a {
+    cursor: pointer;
+}
+
+/* additional header consistency (small gap override) */
+#contact header {
+    position: relative;
+    background: rgba(26, 26, 26, 0.88);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255,107,53,0.3);
+}
+
+/* ensure global .nav a animation works perfectly */
+.nav a.active-page {
+    color: var(--primary-orange);
+}
+
+/* scrollbar hidden but content scroll is functional (clean) */
+#contact ::-webkit-scrollbar {
+    width: 5px;
+}
+
+#contact ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+#contact ::-webkit-scrollbar-thumb {
+    background: var(--primary-orange);
+    border-radius: 10px;
+}
