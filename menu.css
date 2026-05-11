@@ -2,6 +2,18 @@
    MENU PAGE STYLES (uses variables from styles.css)
    ============================================================ */
 
+#menu body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -1;
+    pointer-events: none;
+}
+
 /* ----- Filter Buttons ----- */
 .menu-categories {
     display: flex;

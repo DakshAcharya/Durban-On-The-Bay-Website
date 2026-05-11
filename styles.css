@@ -138,7 +138,7 @@ body {
 /* ============================================================
    FIXED BACKGROUND OVERLAY (behind all content, above image)
    ============================================================ */
-body::after {
+#home body::after {
     content: '';
     position: fixed;
     top: 0;
