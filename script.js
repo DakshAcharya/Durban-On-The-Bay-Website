@@ -96,11 +96,16 @@ function createCategorySection(categoryName, slug, itemsHTML) {
 // Dynamically add filter buttons (except "All Items", which is already in HTML)
 function createCategoryButtons(categories) {
     const container = document.querySelector('.menu-categories');
-    // Keep the "All Items" button (first child)
     const allBtn = container.querySelector('[data-category="all"]');
+    
+    // Clear container and re-add the "All Items" button
     container.innerHTML = '';
     container.appendChild(allBtn);
-
+    
+    // Attach click listener to "All Items"
+    allBtn.addEventListener('click', () => filterCategory('all'));
+    
+    // Create buttons for each category
     categories.forEach(cat => {
         const btn = document.createElement('button');
         btn.className = 'category-btn';
@@ -109,7 +114,7 @@ function createCategoryButtons(categories) {
         btn.addEventListener('click', () => filterCategory(cat.slug));
         container.appendChild(btn);
     });
-}
+}   
 
 // Show/hide categories and update active button state
 function filterCategory(slug) {
