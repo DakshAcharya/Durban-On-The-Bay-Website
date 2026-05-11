@@ -1,4 +1,9 @@
 /* ============================================================
+   IMPORTS & FONTS
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/* ============================================================
    CUSTOM PROPERTIES
    ============================================================ */
 :root {
@@ -17,8 +22,8 @@
     --accent-white: #e9ecef;
 
     /* --- Typography --- */
-    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-heading: 'Arial Black', 'Segoe UI', sans-serif;
+    --font-primary: 'Arial Black', Tahoma, Geneva, Verdana, sans-serif;
+    --font-heading: 'Permanent Marker', 'Segoe UI', sans-serif;
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
     --text-base: 1rem;
@@ -109,15 +114,20 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    height: 100%;                      /* 👈 locks html to viewport */
 }
 
 body {
     font-family: var(--font-primary);
-    background: var(--primary-black);
+    background: url(images/banner.png);
+    display: flex;
+    flex-direction: column;
     color: var(--primary-white);
     line-height: var(--line-height-normal);
     overflow-x: hidden;
-    position: relative;          /* establishes containing block for absolute children if needed */
+    position: relative;
+    height: 100%;                      /* 👈 forces body to match viewport exactly */
+    overflow: hidden;                  /* 👈 kills any scrollbar */
 }
 
 /* Hides the scrollbar entirely */
@@ -135,9 +145,9 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--gradient-dark);      /* subtle dark vignette */
-    z-index: var(--z-overlay-bg);          /* sits just above the fixed image */
-    pointer-events: none;                  /* does not block clicks */
+    background: var(--gradient-dark);
+    z-index: var(--z-overlay-bg);
+    pointer-events: none;
 }
 
 /* ============================================================
@@ -146,7 +156,7 @@ body::after {
 header {
     position: sticky;
     top: 0;
-    z-index: var(--z-header);              /* above overlay & image */
+    z-index: var(--z-header);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -170,9 +180,9 @@ header {
 
 header h1 {
     font-family: var(--font-heading);
-    font-size: var(--space-xl);            /* 2rem, adjustable */
+    font-size: var(--space-xl);
     text-shadow: var(--text-shadow-heavy);
-    margin-bottom: var(--space-md);        /* may be unnecessary if logo is flex, but harmless */
+    margin-bottom: var(--space-md);
 }
 
 /* Main navigation */
@@ -230,16 +240,23 @@ header h1 {
 }
 
 /* ============================================================
-   HERO SECTION
+   MAIN & HERO SECTION
    ============================================================ */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;                 /* 👈 ensures hero doesn't bleed */
+}
+
 .hero {
     position: relative;
     width: 100%;
-    height: 100vh;                 /* full viewport height */
+    height: 100%;                     /* fills available main height */
     overflow: hidden;
 }
 
-/* The image itself becomes a fixed background */
+/* The fixed background image */
 .hero img {
     position: fixed;
     top: 0;
@@ -251,7 +268,7 @@ header h1 {
     display: block;
 }
 
-/* Dark overlay so white text is always readable */
+/* Dark overlay for readability */
 .hero::after {
     content: '';
     position: absolute;
@@ -259,19 +276,19 @@ header h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--gradient-overlay);   /* already defined in :root */
+    background: var(--gradient-overlay);
     z-index: var(--z-overlay-bg);
     pointer-events: none;
 }
 
-/* The centred heading */
+/* Centred heading */
 .hero h1 {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: var(--font-heading);
-    font-size: var(--text-5xl);
+    font-size: 10rem;
     color: var(--primary-white);
     text-shadow: var(--text-shadow-heavy);
     z-index: var(--z-content);
@@ -279,10 +296,10 @@ header h1 {
     white-space: nowrap;
 }
 
-/* Call‑to‑action button – places it just below the heading */
+/* Call‑to‑action button */
 .hero .btn {
     position: absolute;
-    top: calc(50% + 4rem);          /* places it below the heading */
+    top: calc(50% + 7rem);
     left: 50%;
     transform: translateX(-50%);
     display: inline-block;
@@ -307,7 +324,7 @@ header h1 {
 @media (max-width: 768px) {
     .hero h1 {
         font-size: var(--text-3xl);
-        white-space: normal;        /* allow line breaks on small screens */
+        white-space: normal;
     }
     .hero .btn {
         top: calc(50% + 3.5rem);
