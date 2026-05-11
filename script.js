@@ -1,15 +1,8 @@
-// Function to show/hide sections
-function showSection(sectionId) {
-    // Hide all sections
-    document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active');
-    });
-    
-    // Show the selected section
-    document.getElementById(sectionId).classList.add('active');
-}
+// ============================================================
+// MENU LOADING & FILTERING
+// ============================================================
 
-// Function to convert text to URL-friendly slug
+// Convert category name to a URL‑friendly slug
 function createSlug(str) {
     return str.toLowerCase()
         .replace(/[^\w\s-]/g, '')
@@ -18,196 +11,125 @@ function createSlug(str) {
         .replace(/^-+|-+$/g, '');
 }
 
-// Function to load menu from text file
+// Main entry point – fetch and process menu.txt
 function loadMenu() {
     fetch('menu.txt')
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+            if (!response.ok) throw new Error('Menu file not found');
             return response.text();
         })
-        .then(data => {
-            const result = processMenuData(data);
-            document.getElementById('menu-items').innerHTML = result.html;
-            createCategoryButtons(result.categories);
-            // Initialize with all items visible
-            filterCategory('all');
+        .then(menuText => {
+            const { html, categories } = processMenuData(menuText);
+            document.getElementById('menu-content').innerHTML = html;
+            createCategoryButtons(categories);
+            filterCategory('all');   // show all items by default
         })
         .catch(error => {
             console.error('Error loading menu:', error);
-            document.getElementById('menu-items').innerHTML = `
-                <div class="menu-category">
-                    <h3>Error Loading Menu</h3>
-                    <div class="items-grid">
-                        <div class="menu-item">
-                            <div class="item-name">Please make sure menu.txt exists in the same directory</div>
-                            <div class="item-price">--</div>
-                        </div>
-                    </div>
-                </div>
-            `;
+            document.getElementById('menu-content').innerHTML =
+                '<p style="color:white;text-align:center;padding:2rem;">Sorry, the menu could not be loaded.</p>';
         });
 }
 
-// Function to process menu data and return HTML and categories
+// Parse menu.txt → HTML string + list of categories
 function processMenuData(menuText) {
     let html = '';
     const lines = menuText.split('\n');
     const categories = [];
     let currentCategory = null;
-    let currentCategorySlug = '';
-    let currentItemsHTML = '';
-    
-    for (let i = 0; i < lines.length; i++) {
-        const line = lines[i].trim();
-        
-        // Skip empty lines
-        if (!line) continue;
-        
-        // Check if line contains a colon (item) or not (category)
-        if (line.includes(':')) {
-            // This is an item line
-            if (currentCategory) {
-                const [name, price] = line.split(':');
-                const itemName = name.trim();
-                const itemPrice = price.trim();
-                
-                currentItemsHTML += `
-                    <div class="menu-item">
-                        <div class="item-name">${itemName}</div>
-                        <div class="item-price">${itemPrice}</div>
-                    </div>
-                `;
-            }
+    let currentSlug = '';
+    let itemsHTML = '';
+
+    for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed) continue;   // skip blank lines
+
+        if (trimmed.includes(':')) {
+            // Item line: "Name: R95"
+            if (!currentCategory) continue;   // ignore items before first heading
+
+            const colonIndex = trimmed.indexOf(':');
+            const name = trimmed.substring(0, colonIndex).trim();
+            const price = trimmed.substring(colonIndex + 1).trim();
+
+            itemsHTML += `
+                <div class="menu-card">
+                    <h3>${name}</h3>
+                    <span class="price">${price}</span>
+                </div>
+            `;
         } else {
-            // This is a category line - save previous category if exists
+            // Category heading – save previous category first
             if (currentCategory) {
-                // Close the previous category
-                html += createCategoryHTML(currentCategory, currentCategorySlug, currentItemsHTML);
+                html += createCategorySection(currentCategory, currentSlug, itemsHTML);
             }
-            
+
             // Start new category
-            currentCategory = line;
-            currentCategorySlug = createSlug(line);
-            currentItemsHTML = '';
-            
-            // Add to categories array for buttons
-            categories.push({
-                name: currentCategory,
-                slug: currentCategorySlug
-            });
+            currentCategory = trimmed;
+            currentSlug = createSlug(trimmed);
+            itemsHTML = '';
+
+            categories.push({ name: currentCategory, slug: currentSlug });
         }
     }
-    
+
     // Don't forget the last category
     if (currentCategory) {
-        html += createCategoryHTML(currentCategory, currentCategorySlug, currentItemsHTML);
+        html += createCategorySection(currentCategory, currentSlug, itemsHTML);
     }
-    
+
     return { html, categories };
 }
 
-// Helper function to create category HTML
-function createCategoryHTML(categoryName, categorySlug, itemsHTML) {
+// Helper to wrap a category’s items in the section/grid structure
+function createCategorySection(categoryName, slug, itemsHTML) {
     return `
-        <div class="menu-category" data-category="${categorySlug}" id="cat-${categorySlug}">
-            <h3>${categoryName}</h3>
-            <div class="items-grid">
+        <section class="menu-section" data-category="${slug}" id="cat-${slug}">
+            <h2 class="menu-category-title">${categoryName}</h2>
+            <div class="menu-grid">
                 ${itemsHTML}
             </div>
-        </div>
+        </section>
     `;
 }
 
-// Function to create category buttons from the loaded categories
+// Dynamically add filter buttons (except "All Items", which is already in HTML)
 function createCategoryButtons(categories) {
-    const categoriesContainer = document.querySelector('.menu-categories');
-    
-    // Clear existing buttons except "All Items"
-    const allButton = categoriesContainer.querySelector('.category-btn[onclick="filterCategory(\'all\')"]');
-    categoriesContainer.innerHTML = '';
-    categoriesContainer.appendChild(allButton);
-    
-    // Create a button for each category
-    categories.forEach(category => {
-        const button = document.createElement('button');
-        button.className = 'category-btn';
-        button.textContent = category.name;
-        button.setAttribute('onclick', `filterCategory('${category.slug}')`);
-        button.setAttribute('data-category', category.slug);
-        categoriesContainer.appendChild(button);
+    const container = document.querySelector('.menu-categories');
+    // Keep the "All Items" button (first child)
+    const allBtn = container.querySelector('[data-category="all"]');
+    container.innerHTML = '';
+    container.appendChild(allBtn);
+
+    categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'category-btn';
+        btn.textContent = cat.name;
+        btn.dataset.category = cat.slug;
+        btn.addEventListener('click', () => filterCategory(cat.slug));
+        container.appendChild(btn);
     });
 }
 
-// Function to filter menu categories
-function filterCategory(categorySlug) {
-    // Update active category button
+// Show/hide categories and update active button state
+function filterCategory(slug) {
+    // Buttons
     document.querySelectorAll('.category-btn').forEach(btn => {
         btn.classList.remove('active');
-    });
-    
-    // Find and activate the clicked button
-    if (categorySlug === 'all') {
-        document.querySelector('.category-btn[onclick="filterCategory(\'all\')"]').classList.add('active');
-    } else {
-        // Find button with matching data-category attribute
-        const clickedButton = document.querySelector(`.category-btn[data-category="${categorySlug}"]`);
-        if (clickedButton) {
-            clickedButton.classList.add('active');
+        if (btn.dataset.category === slug) {
+            btn.classList.add('active');
         }
-    }
-    
-    // Filter menu categories
-    const menuCategories = document.querySelectorAll('.menu-category');
-    menuCategories.forEach(cat => {
-        if (categorySlug === 'all') {
-            cat.style.display = 'block';
+    });
+
+    // Menu sections
+    document.querySelectorAll('.menu-section').forEach(section => {
+        if (slug === 'all' || section.dataset.category === slug) {
+            section.style.display = 'block';
         } else {
-            const catSlug = cat.getAttribute('data-category');
-            if (catSlug === categorySlug) {
-                cat.style.display = 'block';
-            } else {
-                cat.style.display = 'none';
-            }
+            section.style.display = 'none';
         }
     });
 }
 
-// Load menu when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    // Load the menu
-    loadMenu();
-    
-    // Set home as active section by default
-    showSection('home');
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href !== '#') {
-                e.preventDefault();
-                const targetSection = href.substring(1);
-                showSection(targetSection);
-                
-                // Update URL without page reload
-                history.pushState(null, null, href);
-            }
-        });
-    });
-    
-    // Handle browser back/forward buttons
-    window.addEventListener('popstate', function() {
-        const hash = window.location.hash.substring(1) || 'home';
-        showSection(hash);
-    });
-});
-
-// Handle initial hash if present
-window.addEventListener('load', function() {
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-        showSection(hash);
-    }
-});
+// Kick off everything when the DOM is ready
+document.addEventListener('DOMContentLoaded', loadMenu);

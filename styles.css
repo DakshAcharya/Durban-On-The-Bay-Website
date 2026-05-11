@@ -319,14 +319,3 @@ main {
     transform: translateX(-50%) translateY(-2px);
     box-shadow: var(--shadow-heavy);
 }
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: var(--text-3xl);
-        white-space: normal;
-    }
-    .hero .btn {
-        top: calc(50% + 3.5rem);
-    }
-}
