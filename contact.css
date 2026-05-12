@@ -152,41 +152,52 @@
     font-weight: 500;
 }
 
-.map-mock {
-    margin-top: var(--space-sm);
+.map-container {
+    margin: var(--space-lg) 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;               /* ensures corners stay rounded */
+    box-shadow: var(--shadow-heavy);
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(255, 107, 53, 0.3);
 }
 
-.map-placeholder {
-    background: linear-gradient(145deg, #1e2a2a, #0f1a1f);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-    text-align: center;
-    border: 1px solid var(--primary-orange);
-    position: relative;
+.map-container iframe {
+    display: block;
+    width: 100%;
+    height: 300px;
+    border: 0;
+    filter: brightness(0.95) contrast(1.05);
     transition: var(--transition-smooth);
 }
 
-.map-pin {
-    width: 24px;
-    height: 24px;
-    background: var(--primary-orange);
-    border-radius: 50%;
-    margin: 0 auto var(--space-sm);
-    box-shadow: 0 0 0 4px rgba(255,107,53,0.3);
-    animation: pulse 2s infinite;
+/* Hover effect – subtle glow and lift */
+.map-container:hover {
+    border-color: var(--primary-orange);
+    box-shadow: var(--glow-orange), var(--shadow-heavy);
+    transform: translateY(-2px);
 }
 
-.map-placeholder p {
-    font-weight: bold;
-    color: var(--primary-white);
-    margin-bottom: var(--space-xs);
-    font-size: var(--text-sm);
+.map-container:hover iframe {
+    filter: brightness(1) contrast(1.1);
 }
 
-.map-note {
+/* Optional: directions link below the map */
+.map-directions {
+    text-align: center;
+    margin-top: var(--space-sm);
     font-size: var(--text-xs);
-    color: var(--secondary-white);
+    color: var(--accent-white);
     opacity: 0.8;
+}
+
+.map-directions a {
+    color: var(--primary-lime);
+    text-decoration: none;
+}
+
+.map-directions a:hover {
+    color: var(--primary-orange);
+    text-decoration: underline;
 }
 
 @keyframes pulse {
