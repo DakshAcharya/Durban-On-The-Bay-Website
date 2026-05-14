@@ -2,7 +2,7 @@
    MENU PAGE STYLES (uses variables from styles.css)
    ============================================================ */
 
-#menu body::after {
+.menu::after {
     content: '';
     position: fixed;
     top: 0;
@@ -12,6 +12,12 @@
     background: transparent;
     z-index: -1;
     pointer-events: none;
+}
+
+.menu body {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    font-family: var(--font-primary);
 }
 
 /* ----- Filter Buttons ----- */
