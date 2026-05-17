@@ -2,7 +2,332 @@
    MENU PAGE STYLES (uses variables from styles.css)
    ============================================================ */
 
-#menu body::after {
+/* ============================================================
+   IMPORTS & FONTS
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/* ============================================================
+   CUSTOM PROPERTIES
+   ============================================================ */
+:root {
+    /* --- Colors --- */
+    --primary-black: #0a0a0a;
+    --secondary-black: #1a1a1a;
+    --accent-black: #2a2a2a;
+    --primary-orange: #ff6b35;
+    --secondary-orange: #ff8c5a;
+    --accent-orange: #ff4d1c;
+    --primary-lime: #32cd32;
+    --secondary-lime: #50d050;
+    --accent-lime: #1ebd1e;
+    --primary-white: #ffffff;
+    --secondary-white: #f8f9fa;
+    --accent-white: #e9ecef;
+
+    /* --- Typography --- */
+    --font-primary: 'Arial Black', Tahoma, Geneva, Verdana, sans-serif;
+    --font-heading: 'Permanent Marker', 'Segoe UI', sans-serif;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+
+    /* --- Spacing --- */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    --section-padding: clamp(3rem, 8vw, 8rem);
+    --container-max-width: 1400px;
+
+    /* --- Borders & Radius --- */
+    --border-width-thin: 1px;
+    --border-width-medium: 2px;
+    --border-width-thick: 4px;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-color-accent: var(--primary-orange);
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-round: 50%;
+
+    /* --- Effects & Shadows --- */
+    --glow-orange: 0 0 20px rgba(255, 107, 53, 0.4);
+    --glow-lime: 0 0 20px rgba(50, 205, 50, 0.4);
+    --shadow-heavy: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --text-shadow-heavy: 0 2px 8px rgba(0, 0, 0, 0.7);
+    --text-shadow-soft: 0 1px 4px rgba(0, 0, 0, 0.4);
+    --text-glow-orange: 0 0 10px rgba(255, 107, 53, 0.5);
+
+    /* --- Gradients --- */
+    --gradient-orange: linear-gradient(135deg, var(--primary-orange), var(--accent-orange));
+    --gradient-dark: linear-gradient(180deg, transparent 0%, var(--primary-black) 90%);
+    --gradient-overlay: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+
+    /* --- Opacity --- */
+    --opacity-disabled: 0.5;
+    --opacity-hover: 0.85;
+    --opacity-overlay: 0.6;
+
+    /* --- Z-Index Scale --- */
+    --z-base: 0;
+    --z-overlay-bg: 1;
+    --z-content: 10;
+    --z-header: 500;
+    --z-dropdown: 100;
+    --z-sticky: 500;
+    --z-overlay: 800;
+    --z-modal: 1000;
+    --z-toast: 1200;
+
+    /* --- Transitions --- */
+    --transition-fast: 150ms ease;
+    --transition-medium: 300ms ease;
+    --transition-slow: 600ms ease;
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: url(images/white-wood.jpg) repeat center center fixed;
+    display: flex;
+    flex-direction: column;
+    color: var(--primary-white);
+    line-height: var(--line-height-normal);
+    position: relative;
+    height: 100%;
+}
+
+body {
+  background-image: url(images/white-wood.jpg) repeat center center fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: darken;
+  background-position: center;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+/* ============================================================
+   FIXED BACKGROUND OVERLAY (behind all content, above image)
+   ============================================================ */
+#home body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-dark);
+    z-index: var(--z-overlay-bg);
+    pointer-events: none;
+}
+
+/* ============================================================
+   HEADER & NAVIGATION
+   ============================================================ */
+header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--secondary-black);
+    padding: var(--space-md) var(--space-lg);
+    opacity: var(--opacity-overlay);
+}
+
+/* Logo group */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.logo img {
+    width: 4rem;
+    height: auto;
+    border-radius: var(--radius-round);
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    font-size: var(--space-xl);
+    text-shadow: var(--text-shadow-heavy);
+    margin-bottom: var(--space-md);
+}
+
+/* Main navigation */
+.nav {
+    display: flex;
+    gap: var(--space-lg);
+}
+
+.nav a {
+    color: var(--primary-white);
+    text-decoration: none;
+    font-size: var(--text-lg);
+    position: relative;
+    padding: var(--space-sm) 0;
+    transition: var(--transition-smooth);
+}
+
+/* Animated underline + overline effect */
+.nav a::before,
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-orange);
+    transition: var(--transition-smooth);
+}
+
+.nav a::before {
+    bottom: -4px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.nav a::after {
+    top: -4px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.nav a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: right;
+}
+
+.nav a:hover {
+    color: var(--primary-orange);
+}
+
+/* ============================================================
+   MAIN & HERO SECTION
+   ============================================================ */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* The fixed background image */
+.hero img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: var(--z-base);
+    display: block;
+}
+
+/* Dark overlay for readability */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-overlay);
+    z-index: var(--z-overlay-bg);
+    pointer-events: none;
+}
+
+/* Centred heading */
+.hero h1 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading);
+    font-size: 10rem;
+    color: var(--primary-white);
+    text-shadow: var(--text-shadow-heavy);
+    z-index: var(--z-content);
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Call‑to‑action button */
+.hero .btn {
+    position: absolute;
+    top: calc(50% + 7rem);
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--primary-orange);
+    color: var(--primary-white);
+    text-decoration: none;
+    font-size: var(--text-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-smooth);
+    z-index: var(--z-content);
+}
+
+.hero .btn:hover {
+    background: var(--secondary-orange);
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.menu::after {
     content: '';
     position: fixed;
     top: 0;
@@ -12,6 +337,12 @@
     background: transparent;
     z-index: -1;
     pointer-events: none;
+}
+
+.menu body {
+    background: url(images/white-wood.jpg) no-repeat center center fixed;
+    color: var(--primary-white);
+    font-family: var(--font-primary);
 }
 
 /* ----- Filter Buttons ----- */

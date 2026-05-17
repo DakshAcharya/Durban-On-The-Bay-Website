@@ -106,7 +106,7 @@
 }
 
 .info-card h3, .form-card h3 {
-    font-family: var(--font-primary);
+    font-family: var(--font-heading);
     font-size: var(--text-xl);
     color: var(--primary-orange);
     margin-bottom: var(--space-md);
