@@ -252,18 +252,6 @@ main {
     overflow: hidden;
 }
 
-/* The fixed background image */
-.hero img {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: var(--z-base);
-    display: block;
-}
-
 /* Dark overlay for readability */
 .hero::after {
     content: '';
@@ -290,6 +278,18 @@ main {
     z-index: var(--z-content);
     text-align: center;
     white-space: nowrap;
+    animation: hero 3s ease;
+}
+
+@keyframes hero {
+    0% {
+        transform: translate(-50%, 50%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%);
+        opacity: 0.8;
+    }
 }
 
 /* Call‑to‑action button */
@@ -300,18 +300,19 @@ main {
     transform: translateX(-50%);
     display: inline-block;
     padding: var(--space-md) var(--space-lg);
-    background: var(--primary-orange);
+    background: transparent;
+    border: var(--border-width-medium) solid var(--primary-orange);
     color: var(--primary-white);
     text-decoration: none;
     font-size: var(--text-lg);
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-light);
     transition: var(--transition-smooth);
     z-index: var(--z-content);
+    animation: hero 2s ease;
 }
 
 .hero .btn:hover {
-    background: var(--secondary-orange);
+    background: var(--primary-orange);
     transform: translateX(-50%) translateY(-2px);
-    box-shadow: var(--shadow-heavy);
+    box-shadow: var(--primary-orange) 0 0 10px, var(--shadow-light);
 }
